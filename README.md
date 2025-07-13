@@ -1,7 +1,10 @@
 # 📒 Contact Book (Python Project)
 
-A simple and interactive **Contact Book** built using Python.  
-This project allows users to store, manage, and update contact information through a menu-driven terminal interface. It's a beginner-friendly project ideal for learning the fundamentals of Python such as dictionaries, functions, conditionals, and loops.
+A simple and interactive Contact Book built using Python.
+This project allows users to store, view, update, and delete contact information through a menu-driven terminal interface.
+It is beginner-friendly and ideal for learning the fundamentals of Python, including dictionaries, functions, conditional statements, loops, and file handling with JSON for permanent data storage.
+
+
 
 ---
 
