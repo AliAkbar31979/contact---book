@@ -1,4 +1,21 @@
+import json
+
+# Global dictionary to store contacts
 contacts = {}
+
+# Load contacts from file when program starts
+def load_contacts():
+    global contacts
+    try:
+        with open("contacts.json", "r") as file:
+            contacts = json.load(file)
+    except FileNotFoundError:
+        contacts = {}
+
+# Save contacts to file after any change
+def save_contacts():
+    with open("contacts.json", "w") as file:
+        json.dump(contacts, file, indent=4)
 
 def add_contact():
     name = input("Enter contact name: ")
@@ -8,6 +25,7 @@ def add_contact():
         "phone": phone,
         "email": email
     }
+    save_contacts()
     print(f"Contact '{name}' added successfully!\n")
 
 def view_contact():
@@ -31,6 +49,7 @@ def update_contact():
         if email:
             contacts[name]['email'] = email
 
+        save_contacts()
         print(f"Contact '{name}' updated!\n")
     else:
         print("Contact not found!\n")
@@ -39,6 +58,7 @@ def delete_contact():
     name = input("Enter name to delete: ")
     if name in contacts:
         del contacts[name]
+        save_contacts()
         print(f"Contact '{name}' deleted.\n")
     else:
         print("Contact not found!\n")
@@ -50,6 +70,9 @@ def show_all_contacts():
     else:
         print("No contacts found.")
     print()
+
+# Load contacts before starting the menu
+load_contacts()
 
 # Main Menu
 while True:
@@ -78,5 +101,6 @@ while True:
         break
     else:
         print("Invalid choice. Try again!\n")
+
 
   
